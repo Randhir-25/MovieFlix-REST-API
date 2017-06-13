@@ -15,19 +15,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
-@Table
-//@Table(name="emp")
-@NamedQueries({
-	@NamedQuery(name="Movie.findAll", query="select e from Movie e order by id ASC"),
-	@NamedQuery(name="Movie.findById", query="select e from Movie e WHERE e.id = :pId"),
-})
-public class Movie {
-	@Id
-	@GenericGenerator(name="customUUId", strategy="uuid2")
-	@GeneratedValue(generator="customUUId")
-	private String id; //	@GeneratedValue(strategy=GenerationType.AUTO)
-
+public class MovieTemp {
 
 	private String title;
 	private int year;
@@ -43,136 +31,118 @@ public class Movie {
 	private String awards;
 	private String poster;
 	private String type;
-	
-	@OneToOne
-	private MovieCast movieCast;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+	private int metaStore;
+	private double imdbRating;
+	private double imdbVotes;
+	private String imdbId;
 
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public int getYear() {
 		return year;
 	}
-
 	public void setYear(int year) {
 		this.year = year;
 	}
-
 	public String getRated() {
 		return rated;
 	}
-
 	public void setRated(String rated) {
 		this.rated = rated;
 	}
-
 	public String getReleased() {
 		return released;
 	}
-
 	public void setReleased(String released) {
 		this.released = released;
 	}
-
 	public String getRuntime() {
 		return runtime;
 	}
-
 	public void setRuntime(String runtime) {
 		this.runtime = runtime;
 	}
-
 	public String getDirector() {
 		return director;
 	}
-
 	public void setDirector(String director) {
 		this.director = director;
 	}
-
 	public String getWriter() {
 		return writer;
 	}
-
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-
 	public String getActors() {
 		return actors;
 	}
-
 	public void setActors(String actors) {
 		this.actors = actors;
 	}
-
 	public String getPlot() {
 		return plot;
 	}
-
 	public void setPlot(String plot) {
 		this.plot = plot;
 	}
-
 	public String getLanguage() {
 		return language;
 	}
-
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-
 	public String getCountry() {
 		return country;
 	}
-
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
 	public String getAwards() {
 		return awards;
 	}
-
 	public void setAwards(String awards) {
 		this.awards = awards;
 	}
-
 	public String getPoster() {
 		return poster;
 	}
-
 	public void setPoster(String poster) {
 		this.poster = poster;
 	}
-
 	public String getType() {
 		return type;
 	}
-
 	public void setType(String type) {
 		this.type = type;
 	}
-
-	public MovieCast getMovieCast() {
-		return movieCast;
+	public int getMetaStore() {
+		return metaStore;
 	}
-
-	public void setMovieCast(MovieCast movieCast) {
-		this.movieCast = movieCast;
+	public void setMetaStore(int metaStore) {
+		this.metaStore = metaStore;
 	}
-
+	public double getImdbRating() {
+		return imdbRating;
+	}
+	public void setImdbRating(double imdbRating) {
+		this.imdbRating = imdbRating;
+	}
+	public double getImdbVotes() {
+		return imdbVotes;
+	}
+	public void setImdbVotes(double imdbVotes) {
+		this.imdbVotes = imdbVotes;
+	}
+	public String getImdbId() {
+		return imdbId;
+	}
+	public void setImdbId(String imdbId) {
+		this.imdbId = imdbId;
+	}
+	
 }

@@ -22,62 +22,55 @@ public class User {
 	@Id
 	@GenericGenerator(name="customUUId", strategy="uuid2")
 	@GeneratedValue(generator="customUUId")
-	private String id; //	@GeneratedValue(strategy=GenerationType.AUTO)
-
+	private String uid; //	@GeneratedValue(strategy=GenerationType.AUTO)
 	
-	private String fname;
-	
-	private String lname;
+	private String fullName;
 	
 	@Column(unique = true)
 	private String email;
 	
 	private String password;
 	
-	private String address;
-	
 	private String type;
-	
-	public String getId() {
-		return id;
+
+	public String getUid() {
+		return uid;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
-	public String getFname() {
-		return fname;
+
+	public String getFullName() {
+		return fullName;
 	}
-	public void setFname(String fname) {
-		this.fname = fname;
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
-	public String getLname() {
-		return lname;
-	}
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
+	
 }

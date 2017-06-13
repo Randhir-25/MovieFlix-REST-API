@@ -43,9 +43,9 @@ public class MovieCastServiceImpl implements MovieCastService {
 	@Override
 	@Transactional
 	public MovieCast update(MovieCast moviecast) {
-		MovieCast exist = repository.findOne(moviecast.getId());
+		MovieCast exist = repository.findOne(moviecast.getCastid());
 		if(exist!=null){
-			throw new EntityNotFoundException("MovieCast with "+moviecast.getId()+" not found");
+			throw new EntityNotFoundException("MovieCast with "+moviecast.getCastid()+" not found");
 		}
 		return repository.update(moviecast);
 	}

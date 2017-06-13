@@ -14,26 +14,42 @@ public class MovieCast {
 	@Id
 	@GenericGenerator(name="customUUId", strategy="uuid2")
 	@GeneratedValue(generator="customUUId")
-	private String id; //	@GeneratedValue(strategy=GenerationType.AUTO)
+	private String castid; //	@GeneratedValue(strategy=GenerationType.AUTO)
 	
-	private String personType;
-	private String personName;
-	public String getId() {
-		return id;
+	private int metaStore;
+	private double imdbRating;
+	private double imdbVotes;
+	private String imdbId;
+	public String getCastid() {
+		return castid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setCastid(String castid) {
+		this.castid = castid;
 	}
-	public String getPersonType() {
-		return personType;
+	public int getMetaStore() {
+		return metaStore;
 	}
-	public void setPersonType(String personType) {
-		this.personType = personType;
+	public void setMetaStore(int metaStore) {
+		this.metaStore = metaStore;
 	}
-	public String getPersonName() {
-		return personName;
+	public double getImdbRating() {
+		return imdbRating;
 	}
-	public void setPersonName(String personName) {
-		this.personName = personName;
+	public void setImdbRating(double imdbRating) {
+		this.imdbRating = imdbRating;
 	}
+	public double getImdbVotes() {
+		return imdbVotes;
+	}
+	public void setImdbVotes(double imdbVotes) {
+		this.imdbVotes = imdbVotes;
+	}
+	public String getImdbId() {
+		return imdbId;
+	}
+	public void setImdbId(String imdbId) {
+		this.imdbId = imdbId;
+	}
+	
+	
 }

@@ -14,24 +14,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.shubhamyeole.entity.Movie;
 import com.shubhamyeole.entity.MovieCast;
 import com.shubhamyeole.entity.MovieTemp;
+import com.shubhamyeole.entity.User;
 import com.shubhamyeole.service.MovieCastService;
 import com.shubhamyeole.service.MovieService;
+import com.shubhamyeole.service.UserService;
 
 //@RestController // is combination of @Controller and @ResponseBody
 @Controller
 @ResponseBody
-@RequestMapping(path="/dashboard")
-public class DashboardController {
+@RequestMapping(path="/user")
+public class UserController {
 
 	@Autowired
-	MovieService m_service;
-
-	@Autowired
-	MovieCastService mc_service;
+	UserService u_service;
 
 	@RequestMapping(method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Movie> findAll(){
-		return m_service.findAll();
+	public List<User> findAll(){
+		return u_service.findAll();
 	}
 
 	//	@RequestMapping(method=RequestMethod.GET, path="{id}" , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -41,44 +40,12 @@ public class DashboardController {
 	//	}
 //	MovieTemp
 	@RequestMapping(method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie create(@RequestBody Movie movie){
+	public User create(@RequestBody User user){
 		Movie mov = new Movie();
-		mc_service.create(movie.getMovieCast());
-		m_service.create(movie);
-		System.out.println(movie);
-		return movie;
+		u_service.create(user);
+		return user;
 	}
 
-	@RequestMapping(path="/check", method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie createTemp(@RequestBody MovieTemp movTemp){
-		Movie mov = new Movie();
-		mov.setTitle(movTemp.getTitle());
-		mov.setYear(movTemp.getYear());
-		mov.setRated(movTemp.getRated());
-		mov.setReleased(movTemp.getReleased());
-		mov.setRuntime(movTemp.getRuntime());
-		mov.setDirector(movTemp.getDirector());
-		mov.setActors(movTemp.getActors());
-		mov.setWriter(movTemp.getWriter());
-		mov.setPlot(movTemp.getPlot());
-		mov.setLanguage(movTemp.getLanguage());
-		mov.setCountry(movTemp.getCountry());
-		mov.setAwards(movTemp.getAwards());
-		mov.setPoster(movTemp.getPoster());
-		mov.setType(movTemp.getType());
-		
-		MovieCast mc = new MovieCast();
-		mc.setImdbId(movTemp.getImdbId());
-		mc.setImdbRating(movTemp.getImdbRating());
-		mc.setImdbVotes(movTemp.getImdbVotes());
-		mc.setMetaStore(movTemp.getMetaStore());
-		mc_service.create(mc);
-
-		mov.setMovieCast(mc);
-		m_service.create(mov);
-		System.out.println(mov);
-		return mov;
-	}
 
 	//	@RequestMapping(method=RequestMethod.POST)
 	//	public String create(@RequestParam(required=false, value="fname") String fname){

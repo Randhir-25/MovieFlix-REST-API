@@ -1,0 +1,6 @@
+{
+	"fullName": "Shubham Yeole",
+	"email": "shubhamyeole.cs@gmail.com",
+	"password": "shubhamhahaha",
+	"type": "admin"
+}
